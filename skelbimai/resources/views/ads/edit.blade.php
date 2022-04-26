@@ -1,5 +1,14 @@
 @extends('layouts.app')
 @section('content')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -31,7 +40,28 @@
                                         
                                     @endforeach
                                 </select>
+                                <select name="manufacturer_id" class="form-control">
+                                    <option>Manufacturer</option>
+                                    @foreach($manufacturers as $manufacturer)
+                                        @if($manufacturer->id == $ad->manufacturer_id)
+                                            <option selected value="{{$manufacturer->id}}">{{$manufacturer->name}}</option>
+                                        @else
+                                            <option value="{{$manufacturer->id}}">{{$manufacturer->name}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                                <select name="model_id" class="form-control">
+                                    <option>Car model</option>
+                                    @foreach($carModels as $carModel)
+                                        @if($carModel->id == $ad->model_id)
+                                            <option selected value="{{$carModel->id}}">{{$carModel->name}}</option>
+                                        @else
+                                            <option value="{{$carModel->id}}">{{$carModel->name}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
                                 <select name="type_id" class="form-control">
+                                    <option>Type</option>
                                     @foreach($types as $type)
                                         @if($type->id == $ad->type_id)
                                             <option selected value="{{$type->id}}">{{$type->name}}</option>

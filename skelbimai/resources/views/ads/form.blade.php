@@ -1,5 +1,14 @@
 @extends('layouts.app')
 @section('content')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -21,6 +30,18 @@
                                     <option>Color</option>
                                     @foreach($colors as $color)
                                         <option value="{{$color->id}}">{{$color->name}}</option>
+                                    @endforeach
+                                </select>
+                                <select name="manufacturer_id" class="form-control">
+                                    <option>Manufacturer</option>
+                                    @foreach($manufacturers as $manufacturer)
+                                        <option value="{{$manufacturer->id}}">{{$manufacturer->name}}</option>
+                                    @endforeach
+                                </select>
+                                <select name="model_id" class="form-control">
+                                    <option>Car Model</option>
+                                    @foreach($carModels as $carModel)
+                                        <option value="{{$carModel->id}}">{{$carModel->name}}</option>
                                     @endforeach
                                 </select>
                                 <select name="type_id" class="form-control">
