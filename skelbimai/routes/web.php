@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,11 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::resource('test', 'App\Hettp\Controllers\TestController.php');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'landingpage'])->name('homepage');
+Route::get('/profile/ads', [App\Http\Controllers\UserPanelController::class, 'myAds'])->name('profile.ads');
 
 Auth::routes();
 

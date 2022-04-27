@@ -15,10 +15,11 @@ class CarModelSeeder extends Seeder
      */
     public function run()
     {
-        $carModels = ['80', '90', '100', '200', 'A3', 'A4', 'A6', 'Q5', 'Q7', 'Q8', 'TT',];
+        $carModels = ['A4', 'TT', 'Q7', '320', '530', 'X1',];
         foreach ($carModels as $carModel) {
             DB::table('car_models')->insert([
-                'name' => $carModel
+                'name' => $carModel,
+                'manufacturer_id' => 1
             ]);
         }
     }

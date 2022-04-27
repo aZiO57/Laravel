@@ -38,12 +38,12 @@
                                         <option value="{{$manufacturer->id}}">{{$manufacturer->name}}</option>
                                     @endforeach
                                 </select>
-                                <select name="model_id" class="form-control">
+                                {{-- <select name="model_id" class="form-control">
                                     <option>Car Model</option>
                                     @foreach($carModels as $carModel)
                                         <option value="{{$carModel->id}}">{{$carModel->name}}</option>
                                     @endforeach
-                                </select>
+                                </select> --}}
                                 <select name="type_id" class="form-control">
                                         <option>Type</option>
                                         @foreach($types as $type)
