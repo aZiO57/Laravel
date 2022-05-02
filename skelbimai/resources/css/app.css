@@ -1,5 +1,10 @@
 span.price{
     font-size: 18px;
     font-weight: bold;
-    color:red;
+    color:rgb(51, 255, 0);
+}
+
+span.views{
+    color:blueviolet;
+    font-size: 15px;
 }

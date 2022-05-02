@@ -11,6 +11,7 @@ use App\Models\Manufacturer;
 use App\Models\Type;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
 
 class AdController extends Controller
 {
@@ -33,7 +34,7 @@ class AdController extends Controller
         $data['colors'] = Color::all();
         $data['types'] = Type::all();
         $data['manufacturers'] = Manufacturer::all();
-        $data['car_models'] = CarModel::all();
+        $data['carModels'] = CarModel::all();
         return view('ads.form', $data);
     }
 
@@ -74,6 +75,8 @@ class AdController extends Controller
     public function show(Ad $ad)
     {
         $data['ad'] = $ad;
+        $ad->views = ++$ad->views;
+        $ad->save();
         return view('ads.single', $data);
     }
 

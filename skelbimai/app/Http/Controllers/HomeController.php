@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Ad;
 
 class HomeController extends Controller
 {
@@ -27,6 +28,8 @@ class HomeController extends Controller
 
     public function landingpage()
     {
-        return view('landingpage');
+        $data['popular'] = Ad::orderByDesc('views')->limit(4)->get();
+        $data['recent'] = Ad::orderByDesc('id')->limit(4)->get();
+        return view('landingpage', $data);
     }
 }

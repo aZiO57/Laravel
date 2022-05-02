@@ -23,4 +23,9 @@ class Ad extends Model
     {
         return $this->hasOne(Type::class, 'id', 'type_id');
     }
+
+    public function comment()
+    {
+        return $this->hasMany(Comment::class, 'ad_id', 'id');
+    }
 }
