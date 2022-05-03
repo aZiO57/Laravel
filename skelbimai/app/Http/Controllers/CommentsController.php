@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use illuminate\support\Facades\Auth;
 use App\models\Comment;
+use illuminate\support\Facades\Auth;
+use App\Http\Requests\CommentsRequest;
+
 
 class CommentsController extends Controller
 {
-    public function store(Request $request)
+    public function store(CommentsRequest $request)
     {
-        $adComment = new Comment();
-        $adComment->user_id = Auth::id();
-        $adComment->ad_id = $request->post('ad_id');
-        $adComment->message = $request->post('message');
+        $comment = new Comment();
+        $comment->user_id = Auth::id();
+        $comment->ad_id = $request->post('ad_id');
+        $comment->content = $request->post('content');
 
-        $adComment->save();
-        return redirect('/ad/' . $adComment->ad_id);
+        $comment->save();
+        return redirect('/ad/' . $comment->ad_id);
     }
 }

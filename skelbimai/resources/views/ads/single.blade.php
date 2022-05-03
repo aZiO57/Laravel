@@ -52,14 +52,6 @@
                     </div>
                 </div>        
                 <div class="row">
-                    <div class="col-2">
-                        <div class ="views">
-                            <h2>Ad hits</h2>
-                            <ul>
-                                <li>{{ $ad->views }}</li>
-                            </ul>
-                        </div>
-                    </div>  
                 <div class="col-7" style="margin: 0 auto 0 auto">
                     <form class="form" method="post" action="{{ route('comment.store') }}">
                         @csrf
@@ -73,8 +65,9 @@
                         </div>
                     </form>
                 </div>
-                {{-- @foreach($comments as $comment)
-                    <div class="col-7">
+                @foreach($comments as $comment)
+                    <div class="col-4">
+                        @csrf
                         <div class="card">
                             <div class="card-header row">
                                 <div class="col-6">
@@ -85,11 +78,11 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <p>{{ $comment->message }}</p>
+                                <p>{{ $comment->content }}</p>
                             </div>
                         </div>
                     </div> 
-                 @endforeach --}}
+                 @endforeach
             </div>
         </div>
     </div>

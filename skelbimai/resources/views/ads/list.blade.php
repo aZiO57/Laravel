@@ -20,6 +20,7 @@
                     </div>
                 </div>
             @endforeach
+            {{ $ads->links('pagination::bootstrap-5') }}
         </div>
     </div>
 @endsection
