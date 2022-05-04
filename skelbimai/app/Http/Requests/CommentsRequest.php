@@ -24,7 +24,7 @@ class CommentsRequest extends FormRequest
     public function rules()
     {
         return [
-            'content' => 'required|string|max:255',
+            'content' => 'required|max:255',
             'ad_id' => 'required|numeric'
         ];
     }

@@ -79,7 +79,6 @@ class AdController extends Controller
         $ad->views = ++$ad->views;
         $ad->save();
 
-        $data['comments'] = $ad->comments;
         return view('ads.single', $data);
     }
 

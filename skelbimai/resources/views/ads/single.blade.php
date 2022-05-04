@@ -65,13 +65,12 @@
                         </div>
                     </form>
                 </div>
-                @foreach($comments as $comment)
-                    <div class="col-4">
-                        @csrf
-                        <div class="card">
+                @foreach($ad->comments as $comment)
+                        <div class="col-12">
+                        @csrf                
                             <div class="card-header row">
                                 <div class="col-6">
-                                    {{ ucfirst($comment->user->name) }}
+                                    <li>{{ $ad->user->name }}</li>
                                 </div>
                                 <div class="col-6 text-end">
                                     {{ ucfirst($comment->created_at) }}
@@ -80,7 +79,6 @@
                             <div class="card-body">
                                 <p>{{ $comment->content }}</p>
                             </div>
-                        </div>
                     </div> 
                  @endforeach
             </div>
