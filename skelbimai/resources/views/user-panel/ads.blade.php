@@ -13,14 +13,14 @@
                 </tr>
                 </thead>
                 <tbody>
-            @foreach($ads as $ad)
-                <tr>
-                    <th scope="row">{{$ad->id}}</th>
-                    <td>{{$ad->title}}</td>
-                    <td>{{$ad->views}}</td>
-                    <td><a href="{{route('ad.edit', $ad->id)}}"> edit</a> </td>
-                </tr>
-            @endforeach
+                    @foreach($ads as $ad)
+                    <tr>
+                        <th scope="row">{{$ad->id}}</th>
+                        <td>{{$ad->title}}</td>
+                        <td>{{$ad->views}}</td>
+                        <td><a href="{{route('ad.edit', $ad->id)}}"> edit</a></td>
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>

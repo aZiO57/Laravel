@@ -22,3 +22,10 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('/ad', 'App\Http\Controllers\AdController');
 Route::resource('/comment', 'App\Http\Controllers\CommentsController');
+
+// Messages
+
+Route::get('/message/send/{receiverId}', [App\Http\Controllers\MessageController::class, 'create'])->name('message.create');
+Route::get('/message/read/{chatFriendId}', [App\Http\Controllers\MessageController::class, 'read'])->name('message.read');
+Route::get('/messages', [App\Http\Controllers\MessageController::class, 'inbox'])->name('message.inbox');
+Route::post('/message/send/', [App\Http\Controllers\MessageController::class, 'send'])->name('message.send');
